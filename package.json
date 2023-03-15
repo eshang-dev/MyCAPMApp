@@ -9,6 +9,7 @@
     "@sap/approuter": "^14.0.0",
     "@sap/cds": "^6",
     "express": "^4",
+    "git": "^0.1.5",
     "hdb": "^0.19.5"
   },
   "devDependencies": {
