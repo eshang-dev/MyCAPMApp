@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:upload="sap.ui.unified" xmlns:form="sap.ui.layout.form">
+    <Table id="idExpiryTable" items="{/Expiry}">
+        <columns>
+            <Column id="idColVehNo">
+                <Text id="idColVehNoText" text="Registration No" />
+            </Column>
+            <Column id="idColInsCer">
+                <Text id="idColInsCerText" text="Insurance Certificate" />
+            </Column>
+            <Column id="idColInsDate">
+                <Text id="idColInsDateText" text="Expiry Date" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem id="idColListItem">
+                <Text id="idColDataVehNo" text="{vannum}" />
+                <Text id="idColInsCerData" text="{insurcert}" />
+                <Text id="idColInsDateData" text="{insurancedate}" />
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

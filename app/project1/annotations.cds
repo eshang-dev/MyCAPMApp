@@ -1,0 +1,1 @@
+using NewServices as service from '../../srv/vehicleService';

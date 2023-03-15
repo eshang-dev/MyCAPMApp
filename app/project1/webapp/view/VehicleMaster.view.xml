@@ -1,0 +1,238 @@
+<mvc:View
+    controllerName="project1.controller.VehicleMaster"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:upload="sap.ui.unified"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <SplitApp id="SplitAppDemo" initialMaster="master" initialDetail="detail">
+        <detailPages>
+            <Page id="detail" title="Fleet Details" class="sapuisizecompact" backgroundDesign="Solid">
+                <content>
+                    <VBox id="_IDVbox1" class="sapUiSmallMargin">
+                        <form:SimpleForm
+                            id="_IDForm1"
+                            editable="false"
+                            binding="{/VehicleDetail('001')}"
+                            layout="ResponsiveGridLayout"
+                            labelSpanXL="4"
+                            labelSpanL="4"
+                            labelSpanM="12"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="0"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="2"
+                            columnsM="2"
+                            singleContainerFullSize="false"
+                        >
+                            <form:toolbar>
+                                <Toolbar id="TB1">
+                                    <Title id="Title1" text="{det_vannum}" />
+                                    <ToolbarSpacer id="_IDTBar1" />
+                                    <Button id="_IDEdit1" visible="{= !${Visiblity>/value}}" press="changeFieldVisiblity" icon="sap-icon://edit" text="Edit" />
+                                    <Button id="_IDSave1" visible="{Visiblity>/value}" press="changeFieldVisiblityFalse" icon="sap-icon://save" />
+                                    <Button id="_IDCancel1" visible="{Visiblity>/value}" press="changeFieldVisiblityFalse" icon="sap-icon://cancel" />
+                                </Toolbar>
+                            </form:toolbar>
+                            <form:content>
+                                <core:Title id="_IDTitle1" />
+                                <Label id="_IDLabel1" labelFor="EngineCapacity" class="sapUiTinyMarginEnd" text="Engine Capacity" />
+                                <Input id="_IdInput1" required="true" editable="{Visiblity>/value}" value="{enginecap}" placeholder="" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                                <Label id="_IDLabel2" labelFor="MotorCertificate" class="sapUiTinyMarginEnd" text="license plate" />
+                                <Input id="_IdInput2" required="true" editable="{Visiblity>/value}" value="{motcert}" placeholder="" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                                <Label id="_IDLabel3" labelFor="LastMotorMilage" class="sapUiTinyMarginEnd" text="Last Motor Milage" />
+                                <Input id="_IdInput3" required="true" editable="{Visiblity>/value}" value="{lastmotmleage}" placeholder="" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                                <core:Title id="_IDTitle2" />
+                                <Label id="_IDLabel4" labelFor="MotorDueDate" class="sapUiTinyMarginEnd" text="Purchase Date" />
+                                <Input id="_IdInput4" required="true" editable="{Visiblity>/value}" value="{motduedate}" placeholder="" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                                <Label id="_IDLabel5" labelFor="taxreferenc" class="sapUiTinyMarginEnd" text="Model" />
+                                <Input id="_IdInput5" required="true" editable="{Visiblity>/value}" value="{taxrefNo}" placeholder="" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                                <Label id="_IDLabel6" labelFor="taxduedatee" class="sapUiTinyMarginEnd" text="Servicing Due Date" />
+                                <Input id="_IdInput6" required="true" editable="{Visiblity>/value}" value="{taxduedate}" placeholder="" width="40%" class="sapUiSizeCompact" maxLength="60" />
+                            </form:content>
+                        </form:SimpleForm>
+                    </VBox>
+                    <IconTabBar id="idIconTabBarMulti" class="sapUiResponsiveContentPadding sapuisizecompact">
+                        <items>
+                            <IconTabFilter id="_IDGenIconTabFilter1" icon="sap-icon://hint" key="info" text="Insurance Details" tooltip="Insurance Details">
+                                    <Table class="sapuisizecompact" id="idInsTable">
+                                        <headerToolbar>
+                                            <OverflowToolbar id="otbSubheader1">
+                                                <ToolbarSpacer id="_ID1Toolbarspacer" />
+                                                <Button id="editButton1" icon="sap-icon://edit" text="Edit" type="Transparent" press="onEdit" visible="{= !${Visiblity>/value1}}" />
+                                                <Button id="_IDAdd2" visible="{Visiblity>/value1}" press="onaddInsuranceRow" icon="sap-icon://add" />
+                                                <Button id="saveButton1" text="Save" type="Transparent" press="changeInsuranceFieldVisiblityFalse" visible="{Visiblity>/value1}" />
+                                                <Button id="cancelButton1" text="Cancel" type="Transparent" press="changeInsuranceFieldVisiblityFalse" visible="{Visiblity>/value1}" />
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column id="_IDGenColumn10">
+                                                <Text id="_IDGenText20" text="Insurance Certificate" />
+                                            </Column>
+                                            <Column id="_IDGenColumn20" demandPopin="true">
+                                                <Text id="_IDGenText30" text="Insurance Expiry Date " />
+                                            </Column>
+                                            <Column id="_IDGenColumn12">
+                                                <Text id="_IDGenText21" text="Status" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem id="idColumlist0" vAlign="Middle">
+                                                <cells>
+                                                    <Input id="IDGenText10" editable="{Visiblity>/value1}" value="{insurcert}" />
+                                                    <Input id="IDGenText20" editable="{Visiblity>/value1}" value="{insurancedate}" />
+                                                    <Input id="IDGenText21" editable="{Visiblity>/value1}" value="{status}" />
+                                                </cells>
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                            </IconTabFilter>
+                            <IconTabFilter id="_IDGenIconTabFilter2" text="Driver Details" tooltip="Driver Details" icon="sap-icon://notes" key="notes">
+                                <Table id="idDrivTable">
+                                    <headerToolbar>
+                                        <OverflowToolbar id="otbSubheader">
+                                            <ToolbarSpacer id="_ID1Toolbarspacer1" />
+                                            <Button id="ideditDriver" icon="sap-icon://edit" text="Edit" type="Transparent" press="onEditDriver" visible="{= !${Visiblity>/value2}}" />
+                                            <Button id="_IDAdd3" visible="{Visiblity>/value2}" press="onaddDriverRow" icon="sap-icon://add" />
+                                            <Button id="saveButton" text="Save" type="Transparent" press="changeDriverFieldVisiblity" visible="{Visiblity>/value2}" />
+                                            <Button id="cancelButton" text="Cancel" type="Transparent" press="changeDriverFieldVisiblity" visible="{Visiblity>/value2}" />
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                    <columns>
+                                        <Column id="_IDGenColumn1" width="12em">
+                                            <Text id="_IDGenText2" text="Driver License No." />
+                                        </Column>
+                                        <Column id="_IDGenColumn2" minScreenWidth="Tablet" demandPopin="true">
+                                            <Text id="_IDGenText3" text="Driver Name" />
+                                        </Column>
+                                        <Column id="_IDGenColumn3" minScreenWidth="Tablet" demandPopin="true">
+                                            <Text id="_IDGenText4" text="License Expiry Date" />
+                                        </Column>
+                                        <Column id="_IDGenColumn5">
+                                            <Text id="_IDGenText6" text="License Points" />
+                                        </Column>
+                                        <Column id="_IDGenColumn7">
+                                            <Text id="_IDGenText8" text="Last Updated" />
+                                        </Column>
+                                        <Column id="_IDGenColumn9">
+                                            <Text id="_IDGenText10" text="Assign Date" />
+                                        </Column>
+                                        <Column id="_IDGenColumn11">
+                                            <Text id="_IDGenText12" text="Deallocation Date" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem id="idColumlist" vAlign="Middle">
+                                            <cells>
+                                                <Input id="idobject" editable="{Visiblity>/value2}" value="{driverlic}" />
+                                                <Input id="IDGenText1" editable="{Visiblity>/value2}" value="{drivername}" />
+                                                <Input id="IDGenText2" editable="{Visiblity>/value2}" value="{driverlicexp}" />
+                                                <Input id="IDGenText3" editable="{Visiblity>/value2}" value="{driverlicpts}" />
+                                                <Input id="IDGenText4" editable="{Visiblity>/value2}" value="{lastupdate}" />
+                                                <Input id="IDGenText5" editable="{Visiblity>/value2}" value="{startdate}" />
+                                                <Input id="IDGenText6" editable="{Visiblity>/value2}" value="{enddate}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </IconTabFilter>
+                            <IconTabFilter id="_IDGenIconTabFilterMot" icon="sap-icon://car-rental" key="info" tooltip="MOT Inspection" text="MOT Inspection">
+                                <Table id="_idMotTable" class="sapuisizecompact">
+                                    <headerToolbar>
+                                        <OverflowToolbar id="otbSubheaderMot">
+                                            <ToolbarSpacer id="_ID1ToolbarspacerMot" />
+                                            <Button id="ideditMot" icon="sap-icon://edit" text="Edit" type="Transparent" press="onEditMOT" visible="{= !${Visiblity>/value3}}" />
+                                            <!-- <Button id="_IDAdd3" visible="{Visiblity>/value2}" press="onaddDriverRow" icon="sap-icon://add" /> -->
+                                            <Button id="saveButtonMot" text="Save" type="Transparent" press="changeMOTFieldVisiblity" visible="{Visiblity>/value3}" />
+                                            <Button id="cancelButtonMot" text="Cancel" type="Transparent" press="changeMOTFieldVisiblity" visible="{Visiblity>/value3}" />
+                                        </OverflowToolbar>
+                                    </headerToolbar>
+                                    <columns>
+                                        <Column id="idlastupdate">
+                                            <Text id="idText1" text="Valid Upto" />
+                                        </Column>
+                                        <Column id="idStstus">
+                                            <Text id="idText2" text="Status" />
+                                        </Column>
+                                        <Column id="idApp">
+                                            <Text id="idApprov" text="Approver" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem id="idColList">
+                                            <Input id="idMotLastUpdate" editable="{Visiblity>/value3}" value="{lastupdate}" />
+                                            <Input id="idMotStatus" editable="{Visiblity>/value3}" value="{status}" />
+                                            <Input id="idMotApprover" editable="{Visiblity>/value3}" value="{ApproverName}" />
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </IconTabFilter>
+                            <IconTabFilter id="_IDGenIconTabFilter" icon="sap-icon://write-new" key="info" tooltip="Tax Details" text="Tax Details">
+                                    <Table id="_idTable" class="sapuisizecompact">
+                                        <headerToolbar>
+                                            <OverflowToolbar id="idotbSubheader">
+                                                <ToolbarSpacer id="_Id1Toolbarspacer" />
+                                                <Button id="idedit" icon="sap-icon://edit" text="Edit" type="Transparent" press="onEditTax" visible="{= !${Visiblity>/value4}}" />
+                                                <!-- <Button id="_IDAdd3" visible="{Visiblity>/value2}" press="onaddDriverRow" icon="sap-icon://add" /> -->
+                                                <Button id="saveButton12" text="Save" type="Transparent" press="changeTaxFieldVisiblity" visible="{Visiblity>/value4}" />
+                                                <Button id="cancelButton12" text="Cancel" type="Transparent" press="changeTaxFieldVisiblity" visible="{Visiblity>/value4}" />
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column id="idlastupdateTest">
+                                                <Text id="idTextTest" text="Valid Upto" />
+                                            </Column>
+                                            <Column id="idTest1">
+                                                <Text id="idTest" text="Tax Type" />
+                                            </Column>
+                                            <Column id="idTestAmount">
+                                                <Text id="idTaxAmount" text="Tax Amount" />
+                                            </Column>
+                                        </columns>
+                                        <items>
+                                            <ColumnListItem id="idColList1">
+                                                <Input id="idTest12" editable="{Visiblity>/value4}" value="{lastupdate}" />
+                                                <Input id="idText" editable="{Visiblity>/value4}" value="{TaxType}" />
+                                                <Input id="idTaxAmo" editable="{Visiblity>/value4}" value="{TaxAmount}" />
+                                            </ColumnListItem>
+                                        </items>
+                                    </Table>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                </content>
+            </Page>
+        </detailPages>
+        <masterPages>
+            <Page id="master" title="Fleets" backgroundDesign="List">
+                <OverflowToolbar id="_IDOF1">
+                    <ToolbarSpacer id="_ID1Toolbarspacer2" />
+                    <SearchField id="searchField" placeholder="Enter Vechicel No Only" liveChange="onSearch">
+                        <layoutData>
+                            <OverflowToolbarLayoutData id="_IdOverFlow1" maxWidth="300px" shrinkable="true" priority="NeverOverflow" />
+                        </layoutData>
+                    </SearchField>
+                    <!-- <Button id="_IdReset" text="Reset" type="Transparent" press="onReset" /> -->
+                    <OverflowToolbarButton id="_IdAddNewButton" tooltip="Add New Vechicle" type="Transparent" text="Add" icon="sap-icon://add" press="addNewVehicle" />
+                </OverflowToolbar>
+                <List id="_IDGenList1" items="{/Vehicleheader}">
+                    <items>
+                        <StandardListItem id="_IDGenStandardListItem1" title="{vannum}" description="{vehicletype}" info="{fueltype}" type="Navigation" press=".onPressGoToDetail" />
+                    </items>
+                </List>
+            </Page>
+        </masterPages>
+    </SplitApp>
+</mvc:View>

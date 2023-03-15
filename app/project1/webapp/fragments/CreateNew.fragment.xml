@@ -1,0 +1,215 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:upload="sap.ui.unified" xmlns:form="sap.ui.layout.form">
+    <VBox id="IdVbox1" class="sapUiSmallMargin">
+        <form:SimpleForm
+            id="_IDForm1"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Vechicel"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="12"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <form:toolbar>
+                <Toolbar id="TB11">
+                    <ToolbarSpacer id="_IDTBar11" />
+                    <upload:FileUploader id="fileUploader" uploadUrl="upload/" multiple="false" uploadComplete="handleUploadComplete" />
+                    <Button id='idInsUpload' icon="sap-icon://upload" text="Upload" type="Accept" press="onUploadFile" />
+                </Toolbar>
+            </form:toolbar>
+            <form:content>
+                <core:Title id="_IDTilte1F1" />
+                <Label id="_IDLabelVechiNo" text="Vechicle No" />
+                <Input required="true" value="{Vechicle>/VechicleNo}" placeholder="Vechicel No" id="_IDLabelVechiNoInput" />
+                <Label id="_IDLabelVechType" text="Vechicel Type" />
+                <Input required="true" id="_IDLabelVechTypeSelect" placeholder="Vechicel Type" value="{Vechicle>/VechicelType}" />
+                <Label id="_IDLabelFuType" text="Fuel Type" />
+                <Select id="_IDLabelFuTypeSelect">
+                    <core:Item id="_IdItem1" key="Petrol" text="Petrol" />
+                    <core:Item id="_IdItem2" key="Diesel" text="Diesel" />
+                </Select>
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm
+            id="_IDForm2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Vechicel Detail"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="12"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <form:content>
+                <core:Title id="_IDTitle1" />
+                <Label id="_IDLabel1" labelFor="EngineCapacity" class="sapUiTinyMarginEnd" text="Engine Capacity" />
+                <Input id="_IdInput1" required="true" value="{Vechicle>/EngineCapacity}" placeholder=" Enter Engine Capacity" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                <Label id="_IDLabel2" labelFor="MotorCertificate" class="sapUiTinyMarginEnd" text="license plate" />
+                <Input id="_IdInput2" required="true" value="{Vechicle>/MotorCertificate}" placeholder="Enter license plate No" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                <Label id="_IDLabel3" labelFor="LastMotorMilage" class="sapUiTinyMarginEnd" text="Last Motor Milage" />
+                <Input id="_IdInput3" required="true" value="{Vechicle>/LastMotorMilage}" placeholder="Enter Last Motor Milage" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                <core:Title id="_IDTitle2" />
+                <Label id="_IDLabel4" labelFor="MotorDueDate" class="sapUiTinyMarginEnd" text="Purchase Date" />
+                <DatePicker id="_IdInput4" required="true" valueFormat="yyyy-MM-dd" placeholder="Enter Purchase Date" width="40%" class="sapUiSizeCompact" value="{Vechicle>/MotorDueDate}" />
+
+                <Label id="_IDLabel5" labelFor="taxreferenc" class="sapUiTinyMarginEnd" text="Model Name" />
+                <Input id="_IdInput5" required="true" value="{Vechicle>/TaxReferenc}" placeholder="Enter Model Name" width="40%" class="sapUiSizeCompact" maxLength="60" />
+
+                <Label id="_IDLabel6" labelFor="taxduedatee" class="sapUiTinyMarginEnd" text="Servicing Due Date" />
+                <DatePicker id="_IdInput6" required="true" valueFormat="yyyy-MM-dd" placeholder="Enter Servicing Due Date" width="40%" class="sapUiSizeCompact" value="{Vechicle>/TaxDueDate}" />
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm
+            id="_IDForm3"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Insurance Details"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="12"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <form:content>
+                <core:Title id="_IDTitleF1" />
+                <Label id="_IDF2L1" text="Insurance Certificate No" />
+                <Input required="true" value="{Vechicle>/InsuranceCertificateNo}" placeholder="Enter Insurance Certificate No" width="40%" id="_IDInput" />
+                <Label id="_IDF2L3" text="Status" />
+                <Input required="true" value="{Vechicle>/IncStatus}" placeholder="Enter Status" width="40%" id="_IDInput2" />
+                <core:Title id="_IDTitleF1T1" />
+                <Label id="_IDF2L2" text="Insurance Date" />
+                <DatePicker required="true" placeholder="Enter Insurance Date" width="40%" id="_IDInputDate" valueFormat="yyyy-MM-dd" value="{Vechicle>/InsuranceDate}" />
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm
+            id="_IDForm4"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Driver Details"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="12"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <form:content>
+                <core:Title id="_IdTiltleF4" />
+                <Label id="_IDF4L1" text="Driver License No" />
+                <Input required="true" placeholder="Enter Driver License No" width="40%" id="_IDInputF4" value="{Vechicle>/DriverLicenseNo}" />
+                <Label id="_IDF4L2" text="Driver Name" />
+                <Input required="true" placeholder="Enter Driver Name" width="40%" id="_IDDriverName" value="{Vechicle>/DriverName}" />
+                <Label id="_IDF4L3" text="License Expiry Date" />
+                <DatePicker required="true" width="40%" placeholder="Enter License Expiry Date" id="_IdLicense" valueFormat="yyyy-MM-dd" value="{Vechicle>/ExpiryDate}" />
+                <Label id="_IDF4L4" text="License Points" />
+                <Input required="true" placeholder="Enter License Points" width="40%" id="_IdLicensePt" value="{Vechicle>/LicensePoints}" />
+
+                <core:Title id="_IDTitleF5" />
+                <Label id="_IDF4L5" text="Last Updated Date" />
+                <DatePicker required="true" placeholder="Enter Last Updated Date" width="40%" id="_IdLastUpdated" value="{Vechicle>/LastUpdatedDate}" valueFormat="yyyy-MM-dd" />
+                <Label id="_IdF4L6" text="Start Date" />
+                <DatePicker required="true" placeholder="Enter Start Date" width="40%" id="_IdStartDate" value="{Vechicle>/StartDate}" valueFormat="yyyy-MM-dd" />
+                <Label id="_IdF4L7" text="End Date" />
+                <DatePicker required="true" placeholder="Enter End Date" width="40%" id="_IdEndDate" value="{Vechicle>/EndDate}" valueFormat="yyyy-MM-dd" />
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm
+            id="_IDFormMot"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="MOT Inspection"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="12"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <form:content>
+                <core:Title id="_IdTiltleF5" />
+                <Label id="_IDF5L1" text="Approver Name" />
+                <Input required="true" placeholder="Enter Approver Name" width="40%" id="_IDInputF5" value="{Vechicle>/Approver}" />
+                <Label id="_IDF5L2" text="Status" />
+                <Input required="true" placeholder="Enter Status" width="40%" id="_IDStatus" value="{Vechicle>/Status}" />
+
+                <core:Title id="_IDTitleF51" />
+                <Label id="_IDF5L5" text="Valid Upto Date" />
+                <DatePicker required="true" placeholder="Enter Valid Upto Date" width="40%" id="_IdLastUpdatedMot" value="{Vechicle>/MOTValidUpto}" valueFormat="yyyy-MM-dd" />
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm
+            id="_IDForm6"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            title="Tax Details"
+            labelSpanXL="4"
+            labelSpanL="4"
+            labelSpanM="12"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="0"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            singleContainerFullSize="false"
+        >
+            <form:content>
+                <core:Title id="_IdTiltleF6" />
+                <Label id="_IDF6L1" text="Tax Type" />
+                <Input required="true" placeholder="Enter Tax Type" width="40%" id="_IDInputF6" value="{Vechicle>/TaxType}" />
+                <Label id="_IDF6L2" text="Tax Amount" />
+                <Input required="true" placeholder="Enter Tax Amount" width="40%" id="_IDTaxAmount" value="{Vechicle>/TaxAmount}" />
+
+                <core:Title id="_IDTitleF6" />
+                <Label id="_IDF6L5" text="Valid Upto" />
+                <DatePicker required="true" placeholder="Enter Valid Upto Date" width="40%" id="_IdLastUpdatedTax" value="{Vechicle>/TaxValidUpto}" valueFormat="yyyy-MM-dd" />
+            </form:content>
+        </form:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,17 @@
+<mvc:View controllerName="project1.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <GenericTile id="idMDTile" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fleet Details" press="loadVehicleDetail">
+        <TileContent id="idVehiclecontent">
+            <NumericContent id="idNC1" value="{viewModel>/noOfVehicles}" icon="sap-icon://car-rental" withMargin="false" />
+        </TileContent>
+    </GenericTile>
+    <GenericTile id="idMDTile1" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fleet Management Cockpit">
+        <TileContent id="idVehiclecontent1">
+            <NumericContent id="idNC" icon="sap-icon://crm-service-manager" withMargin="false" />
+        </TileContent>
+    </GenericTile>
+    <GenericTile id="idMDTile2" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Fleet Alerts" press="showExpiryDetails">
+        <TileContent id="idVehiclecontent2">
+            <NumericContent id="idNC2" icon="sap-icon://alert" withMargin="false" />
+        </TileContent>
+    </GenericTile>
+</mvc:View>
